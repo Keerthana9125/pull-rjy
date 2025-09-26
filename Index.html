@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple HTML Example</title>
+
+  <!-- Simple inline CSS -->
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.5;
+      padding: 0 16px;
+      color: #111;
+    }
+    header { border-bottom: 1px solid #eee; padding-bottom: 12px; margin-bottom: 20px; }
+    .card { background:#fafafa; padding:16px; border-radius:8px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);}
+    button { padding:8px 12px; border-radius:6px; border:1px solid #888; background:#fff; cursor:pointer;}
+    input[type="text"] { padding:8px; border-radius:6px; border:1px solid #ccc; width:60%; }
+    footer { margin-top:32px; font-size:0.9rem; color:#666; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Simple HTML Page</h1>
+    <p>A tiny demo showing HTML structure, styling, and a bit of JavaScript.</p>
+  </header>
+
+  <section class="card">
+    <h2>List & Link</h2>
+    <p>Things I like:</p>
+    <ul>
+      <li>Learning new things</li>
+      <li>Building small projects</li>
+      <li>Reading documentation</li>
+    </ul>
+    <p>Visit <a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a> for HTML references.</p>
+  </section>
+
+  <section style="margin-top:18px;">
+    <h2>Image (placeholder)</h2>
+    <!-- Replace the src with any image URL or local file -->
+    <img src="https://via.placeholder.com/600x200?text=Placeholder+Image" alt="placeholder" style="max-width:100%;border-radius:6px;">
+  </section>
+
+  <section style="margin-top:18px;">
+    <h2>Simple Form</h2>
+    <div class="card">
+      <label for="name">Your name:</label><br>
+      <input id="name" type="text" placeholder="Type your name" />
+      <button id="greetBtn">Greet me</button>
+
+      <p id="greeting" style="margin-top:12px;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with plain HTML, CSS & JS — no frameworks.</p>
+  </footer>
+
+  <!-- Small JavaScript: handle button click -->
+  <script>
+    const btn = document.getElementById('greetBtn');
+    const nameInput = document.getElementById('name');
+    const output = document.getElementById('greeting');
+
+    btn.addEventListener('click', () => {
+      const name = nameInput.value.trim();
+      output.textContent = name ? `Hello, ${name}! 👋` : 'Hello! Please enter your name.';
+    });
+
+    // Optional: press Enter to trigger greeting
+    nameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') btn.click();
+    });
+  </script>
+</body>
+</html>
